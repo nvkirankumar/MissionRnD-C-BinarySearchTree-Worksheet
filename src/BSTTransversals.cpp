@@ -14,22 +14,65 @@ Bonus Task :
 it and understand how testing works .
 */
 
-#include <stdio.h>
 
-struct node{
+#include <stdio.h>
+#include<malloc.h>
+
+struct node
+{
 	struct node * left;
 	int data;
 	struct node *right;
 };
+int j = 0;
+int k = 0;
+int l = 0;
+void inorder(struct node *root, int *arr)
+{
+	if (root == NULL || arr == NULL)
+	{
 
+		return;
+	}
+	if (root != NULL)
+	{
+		inorder(root->left, arr);
+		arr[j] = root->data;
+		j++;
+		inorder(root->right, arr);
+	}
+}
+void preorder(struct node *root, int *arr)
+{
 
-void inorder(struct node *root, int *arr){
-	
-}
-void preorder(struct node *root, int *arr){
-	
-}
-void postorder(struct node *root, int *arr){
-	
-}
+	if (root == NULL || arr == NULL)
+	{
+		return;
+	}
+	if (root != NULL)
+	{
 
+		arr[k] = root->data;
+		k++;
+		preorder(root->left, arr);
+		preorder(root->right, arr);
+
+	}
+
+}
+void postorder(struct node *root, int *arr)
+{
+	if (root == NULL || arr == NULL)
+	{
+		return;
+
+	}
+	if (root != NULL)
+	{
+		postorder(root->left, arr);
+		postorder(root->right, arr);
+		arr[l] = root->data;
+		l++;
+	}
+
+}
