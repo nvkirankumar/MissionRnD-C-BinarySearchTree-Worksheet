@@ -24,21 +24,18 @@ struct node
 	int data;
 	struct node *right;
 };
-int j = 0;
-int k = 0;
-int l = 0;
+
+int i = 0, j = 0, k = 0;
 void inorder(struct node *root, int *arr)
 {
 	if (root == NULL || arr == NULL)
-	{
-
 		return;
-	}
+
 	if (root != NULL)
 	{
 		inorder(root->left, arr);
-		arr[j] = root->data;
-		j++;
+		arr[i] = root->data;
+		i++;
 		inorder(root->right, arr);
 	}
 }
@@ -46,14 +43,13 @@ void preorder(struct node *root, int *arr)
 {
 
 	if (root == NULL || arr == NULL)
-	{
 		return;
-	}
+
 	if (root != NULL)
 	{
 
-		arr[k] = root->data;
-		k++;
+		arr[j] = root->data;
+		j++;
 		preorder(root->left, arr);
 		preorder(root->right, arr);
 
@@ -63,16 +59,14 @@ void preorder(struct node *root, int *arr)
 void postorder(struct node *root, int *arr)
 {
 	if (root == NULL || arr == NULL)
-	{
 		return;
 
-	}
 	if (root != NULL)
 	{
 		postorder(root->left, arr);
 		postorder(root->right, arr);
-		arr[l] = root->data;
-		l++;
+		arr[k] = root->data;
+		k++;
 	}
 
 }
